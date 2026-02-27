@@ -1,0 +1,59 @@
+@import "../../styles/tokens";
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: $btn-height;
+  padding: 0 $btn-padding-x;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+  &--primary {
+    background: $color-primary;
+    color: $color-white;
+
+    &:hover {
+      background: $color-primary-hover;
+    }
+
+    &:disabled {
+      background: $color-gray-300;
+      cursor: not-allowed;
+    }
+  }
+
+  &--secondary {
+    background: $color-gray-900;
+    color: $color-white;
+
+    &:hover {
+      background: #0b1220;
+    }
+
+    &:disabled {
+      background: $color-gray-300;
+      cursor: not-allowed;
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    border-color: $color-primary;
+    color: $color-primary;
+
+    &:hover {
+      background: rgba(31, 111, 235, 0.08);
+    }
+
+    &:disabled {
+      border-color: $color-gray-300;
+      color: $color-gray-300;
+      cursor: not-allowed;
+    }
+  }
+}
