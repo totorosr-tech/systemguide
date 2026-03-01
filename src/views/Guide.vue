@@ -11,15 +11,42 @@
         <Button variant="primary" :disabled="true">Disabled</Button>
       </div>
     </section>
+
+    <section class="guide__section">
+      <h2 class="guide__subtitle">Select</h2>
+      <div class="guide__row">
+        <Select
+          v-model="selectedStatus"
+          :options="statusOptions"
+          placeholder="Select status"
+        />
+        <Select
+          :model-value="'pending'"
+          :options="statusOptions"
+          :disabled="true"
+        />
+      </div>
+    </section>
   </main>
 </template>
 
 <script>
 import Button from "../components/button/Button.vue";
+import Select from "../components/select/Select.vue";
 
 export default {
   name: "Guide",
-  components: { Button }
+  components: { Button, Select },
+  data() {
+    return {
+      selectedStatus: "",
+      statusOptions: [
+        { label: "Pending", value: "pending" },
+        { label: "Approved", value: "approved" },
+        { label: "Rejected", value: "rejected" }
+      ]
+    };
+  }
 };
 </script>
 
@@ -36,6 +63,10 @@ export default {
 .guide__subtitle {
   font-size: 20px;
   margin-bottom: 16px;
+}
+
+.guide__section + .guide__section {
+  margin-top: 32px;
 }
 
 .guide__row {

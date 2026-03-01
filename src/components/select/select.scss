@@ -1,0 +1,49 @@
+@import "../../styles/tokens";
+
+.select {
+  position: relative;
+  display: inline-flex;
+  min-width: 220px;
+
+  &__field {
+    width: 100%;
+    height: $select-height;
+    padding: 0 40px 0 $select-padding-x;
+    border: 1px solid $color-gray-300;
+    border-radius: $radius-md;
+    background: $color-white;
+    color: $color-gray-900;
+    font-size: $font-size-sm;
+    appearance: none;
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 4px rgba($color-primary, 0.15);
+    }
+
+    &:disabled {
+      background: $color-gray-100;
+      color: $color-gray-500;
+      cursor: not-allowed;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid $color-gray-500;
+    border-bottom: 2px solid $color-gray-500;
+    transform: translateY(-70%) rotate(45deg);
+    pointer-events: none;
+  }
+
+  &--disabled &__icon {
+    border-color: $color-gray-300;
+  }
+}
